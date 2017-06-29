@@ -5,6 +5,8 @@ from django.template import loader
 from django.urls import reverse
 from django.views import generic
 
+
+
 # Create your views here.
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
