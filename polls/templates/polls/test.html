@@ -1,0 +1,34 @@
+<!--
+<h1>{{ question.question_text }}</h1>
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }}</li>
+{% endfor %}
+</ul>
+-->
+
+<h1>{{ titolo }}</h1>
+
+<ul>
+    {% for coso in cosi %}
+        <li>{{ coso.id_coso }} / {{ coso.descrizione_coso }}</li>
+        {% for a in coso.attributocoso_set.all %}
+        * {{ a.id }} / {{a.id_coso}}:  {{ a.cod_attributo }} = {{ a.valore_attributo }}<br>
+        {% endfor %}
+        <br>
+    {% endfor %}
+</ul>
+
+<!--
+<hr>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+{% endfor %}
+<input type="submit" value="Vote" />
+
+-->

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+ <title>Calc</title>
+</head>
+    <body>
+    <!--
+
+    <form action="." method="POST">
+        {% csrf_token %}
+    <label for="x">X: </label>
+    <input type="text" name="x" value="{{ x }}">
+    <label for="y">Y: </label>
+    <input type="text" name="y" value="{{ y }}">
+    <input type="submit" value="Calc">
+    </form>
+    -->
+
+    <form action="." method="POST">
+        {% csrf_token %}     
+        <table>
+            {{ form.as_table }}
+        </table>
+        <p> <input type="submit" value="Calc"></p>
+    </form>
+
+
+    {% if ris %}
+    <h2>{{ ris }}</h2>
+    {% endif %}
+    </body>
+</html>
