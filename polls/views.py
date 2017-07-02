@@ -65,6 +65,14 @@ def prepara_dati():
     a.valore_attributo="1 -- attr C"
     a.save()
 
+    a=None
+    a=AttributoCoso()
+    a.id_coso=c1
+    a.cod_attributo="COLORE"
+    a.valore_attributo="ROSSO"
+    a.save()
+
+
     c2 = Coso()
     c2.id_coso = 2
     c2.descrizione_coso = "Coso N° 2"
@@ -97,6 +105,13 @@ def prepara_dati():
     a.valore_attributo="2 -- attr C"
     a.save()
 
+    a=None
+    a=AttributoCoso()
+    a.id_coso=c2
+    a.cod_attributo="COLORE"
+    a.valore_attributo="VERDE"
+    a.save()
+
     c3 = Coso()
     c3.id_coso = 3
     c3.descrizione_coso = "Coso N° tre"
@@ -106,6 +121,12 @@ def prepara_dati():
     cx.descrizione_coso = "Coso N° 3"
     cx.save()
 
+    a=None
+    a=AttributoCoso()
+    a.id_coso=c3
+    a.cod_attributo="COLORE"
+    a.valore_attributo="VERDE"
+    a.save()
     # 
 
 def test(request):
@@ -114,13 +135,17 @@ def test(request):
 
     prepara_dati()
  
-
     cosi = Coso.objects.all()
+    # cosi_verdi = Coso.objects.filter(attributocoso__in = AttributoCoso.objects.filter(cod_attributo="COLORE", valore_attributo="VERDE",),)
+    cosi_verdi = Coso.objects.filter(attributocoso__cod_attributo="COLORE",  attributocoso__valore_attributo="VERDE",)
 
     context = {
         'titolo': "Test modelli",
         'cosi' : cosi,
+        'cosi_verdi' : cosi_verdi,
     }
+
+
     # debug-only: print (template.render(context, request))
     return HttpResponse(template.render(context, request))
 

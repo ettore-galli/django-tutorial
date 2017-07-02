@@ -8,13 +8,22 @@
 -->
 
 <h1>{{ titolo }}</h1>
-
+<hr>
+<p>Cosi</p>
 <ul>
     {% for coso in cosi %}
         <li>{{ coso.id_coso }} / {{ coso.descrizione_coso }}</li>
         {% for a in coso.attributocoso_set.all %}
         * {{ a.id }} / {{a.id_coso}}:  {{ a.cod_attributo }} = {{ a.valore_attributo }}<br>
         {% endfor %}
+        <br>
+    {% endfor %}
+</ul>
+<hr>
+<p>Cosi verdi</p>
+<ul>
+    {% for coso in cosi_verdi %}
+        <li>{{ coso.id_coso }} / {{ coso.descrizione_coso }}</li>
         <br>
     {% endfor %}
 </ul>

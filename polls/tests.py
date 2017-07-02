@@ -40,6 +40,8 @@ class CosoModelTest(TestCase):
         a.valore_attributo="1 -- attr C"
         a.save()
 
+
+
         c2 = Coso()
         c2.id_coso = 2
         c2.descrizione_coso = "Coso N° 2"
